@@ -1,7 +1,10 @@
 # Importing Keys
 wget -q -O - https://archive.kali.org/archive-key.asc | sudo apt-key add
 echo "[*] + Updating and Upgrading"
-sudo apt-get update && sudo apt-get upgrade -y
+# sudo apt-get update && sudo apt-get upgrade -y
+sudo apt-get update
+sudo apt-get --yes --allow -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" upgrade
+sudo apt-get --yes --allow -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" dist-upgrade
 cd /home/vagrant
 sudo apt-get update --fix-missing
 sudo apt-get upgrade -y
